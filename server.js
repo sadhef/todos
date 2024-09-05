@@ -17,7 +17,7 @@ app.get('/todos', (req, res) => {
 });
 
 // GET by ID
-app.get('/todos/id:', (req, res) => {
+app.get('/todos/:id', (req, res) => {
     const todo = todos.find(t => t.id === parseInt(req.params.id));
     if (!todo) return res.status(404).send('Todo not found');
     res.json(todo);
@@ -35,7 +35,7 @@ app.post('/todos', (req, res) => {
 });
 
 // PUT
-app.put('/todos/id:', (req, res) => {
+app.put('/todos/:id', (req, res) => {
     const todo = todos.find(t => t.id === parseInt(req.params.id));
     if (!todo) return res.status(404).send('Todo not found');
 
@@ -45,13 +45,14 @@ app.put('/todos/id:', (req, res) => {
 });
 
 // DELETE 
-app.delete('/todos/id:', (req, res) => {
+app.delete('/todos/:id', (req, res) => {
     const todoIndex = todos.findIndex(t => t.id === parseInt(req.params.id));
     if (todoIndex === -1) return res.status(404).send('Todo not found');
 
     todos.splice(todoIndex, 1);
     res.status(204).send();
 });
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
