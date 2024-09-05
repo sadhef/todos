@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 3004;
 
 app.use(express.json());
 
@@ -51,7 +50,7 @@ app.delete('/todos/:id', (req, res) => {
     todos.splice(todoIndex, 1);
     res.status(204).send();
 });
-
-app.listen(port, () => {
-    console.log(`Server is running on port:${port}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
