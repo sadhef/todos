@@ -7,14 +7,14 @@
     "start": "node server.js"
   },
   "engines": {
-  "node": "20.15.1"
-},
-
+    "node": "20.15.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2"
   }
 }
